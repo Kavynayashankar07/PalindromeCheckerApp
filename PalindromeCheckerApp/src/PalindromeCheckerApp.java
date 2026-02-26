@@ -1,21 +1,28 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String word = "naman";
-        int i, n;
-        char[] chars = word.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        boolean isPalindrome = true;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
-                isPalindrome = false;
+        String input="monish";
+        int i,n;
+        Stack<Character> stack=new Stack<>();
+        for(char c:input.toCharArray()){
+            stack.push(c);
+        }
+        boolean isPalindrome=true;
+        for(char c:input.toCharArray()){
+            char poppedChar=stack.pop();
+            if(c!=poppedChar){
+                isPalindrome=false;
                 break;
             }
-            start++;
-            end--;
         }
-        System.out.println("Input:" + word);
-        System.out.println("Is palindrome?:" + isPalindrome);
+        if(isPalindrome){
+            System.out.println("Input: "+input);
+            System.out.println("Is palindrome? : true");
+        }else{
+            System.out.println("Input: "+input);
+            System.out.println("Is palindrome? : false");
+        }
     }
 }
 
