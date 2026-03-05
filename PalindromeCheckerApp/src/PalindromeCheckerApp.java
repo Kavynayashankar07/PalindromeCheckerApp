@@ -2,38 +2,35 @@ import java.util.Stack;
 
 public class PalindromeCheckerApp {
     System.out.println("WELCOME TO PALINDROME CHECKER APP MANAGEMENT SYSTEM");
-        System.out.println("Version: 8.0");
+        System.out.println("Version: 9.0");
         System.out.println("System instantiated successfully");
         System.out.println();
 
-    String input = "refer";
+    String input = "A man, a plan, a canal: Panama";
 
-    // Create LinkedList
-    LinkedList<Character> list = new LinkedList<>();
-
-    // Add characters to LinkedList
-        for (char c : input.toCharArray()) {
-        list.add(c);
-    }
+    // Normalize the string
+    String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
     boolean isPalindrome = true;
 
-    // Compare first and last characters
-        while (list.size() > 1) {
-        char first = list.removeFirst();
-        char last = list.removeLast();
+    int left = 0;
+    int right = normalized.length() - 1;
 
-        if (first != last) {
+        while (left < right) {
+
+        if (normalized.charAt(left) != normalized.charAt(right)) {
             isPalindrome = false;
             break;
         }
+
+        left++;
+        right--;
     }
 
-    // Print result
         if (isPalindrome) {
-        System.out.println(input + " is a palindrome.");
+        System.out.println("The string is a normalized palindrome.");
     } else {
-        System.out.println(input + " is not a palindrome.");
+        System.out.println("The string is not a normalized palindrome.");
     }
     }
 }
