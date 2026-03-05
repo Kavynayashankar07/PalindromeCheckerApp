@@ -1,27 +1,27 @@
 import java.util.Stack;
 
 public class PalindromeCheckerApp {
-    pub System.out.println("WELCOME TO PALINDROME CHECKER APP MANAGEMENT SYSTEM");
-        System.out.println("Version: 7.0");
+    System.out.println("WELCOME TO PALINDROME CHECKER APP MANAGEMENT SYSTEM");
+        System.out.println("Version: 8.0");
         System.out.println("System instantiated successfully");
         System.out.println();
 
     String input = "refer";
 
-    // Create deque
-    Deque<Character> deque = new ArrayDeque<>();
+    // Create LinkedList
+    LinkedList<Character> list = new LinkedList<>();
 
-    // Add characters to deque
+    // Add characters to LinkedList
         for (char c : input.toCharArray()) {
-        deque.addLast(c);
+        list.add(c);
     }
 
     boolean isPalindrome = true;
 
     // Compare first and last characters
-        while (deque.size() > 1) {
-        char first = deque.removeFirst();
-        char last = deque.removeLast();
+        while (list.size() > 1) {
+        char first = list.removeFirst();
+        char last = list.removeLast();
 
         if (first != last) {
             isPalindrome = false;
@@ -29,7 +29,7 @@ public class PalindromeCheckerApp {
         }
     }
 
-    // Display result
+    // Print result
         if (isPalindrome) {
         System.out.println(input + " is a palindrome.");
     } else {
